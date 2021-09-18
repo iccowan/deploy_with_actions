@@ -17,6 +17,9 @@ jobs:
                 host: ssh.cowman.xyz
                 private-key: ${{ secrets.COWMAN_SSH_KEY }}
 
+            - name: Change into proper directory
+              run: cd actions.cowman.xyz
+
             - name: Checkout master
               run: git checkout master
 
