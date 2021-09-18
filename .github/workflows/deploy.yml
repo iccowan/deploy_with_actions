@@ -11,17 +11,13 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - name: Setup SSH
-              uses: MrSquaare/ssh-setup-action@v1
+            - name: SSH into Server and Deploy
+              uses: fifsky/ssh-action@master
               with:
-                host: ssh.cowman.xyz
-                private-key: ${{ secrets.COWMAN_SSH_KEY }}
-
-            - name: Change into proper directory
-              run: cd actions.cowman.xyz
-
-            - name: Checkout master
-              run: git checkout master
-
-            - name: Pull from master
-              run: git pull origin master
+              command: |
+                cd actions.cowman.xyz
+                git checkout master
+                git pull origin master
+              host: ${{ secrets.COWMAN_SSH_HOST }}
+              user: ${{ secrets.COWMAN_SSH_USER }}
+              key: ${{ secrets.COWMAN_SSH_KEY }}
