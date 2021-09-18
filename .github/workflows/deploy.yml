@@ -14,10 +14,10 @@ jobs:
             - name: SSH into Server and Deploy
               uses: fifsky/ssh-action@master
               with:
-              command: |
-                cd actions.cowman.xyz
-                git checkout master
-                git pull origin master
-              host: ${{ secrets.COWMAN_SSH_HOST }}
-              user: ${{ secrets.COWMAN_SSH_USER }}
-              key: ${{ secrets.COWMAN_SSH_KEY }}
+                command: |
+                    cd actions.cowman.xyz
+                    git checkout master
+                    git pull origin master
+                host: ${{ secrets.COWMAN_SSH_HOST }}
+                user: ${{ secrets.COWMAN_SSH_USER }}
+                key: ${{ secrets.COWMAN_SSH_KEY }}
